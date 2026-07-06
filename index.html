@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Complete AI Growth Suite · ETSystemsAI</title>
-<meta name="description" content="Two AI tools that bring you traffic AND answer every customer — one setup fee, one monthly bill. AI Visibility Navigator + AI FAQ Assistant.">
+<meta name="description" content="Two AI tools that bring you traffic AND answer every customer — one setup fee, one monthly bill. AI Visibility Navigator + AI Knowledge Assistant.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -172,6 +172,22 @@ nav {
   transition: background 0.15s;
 }
 .btn-secondary:hover { background: var(--indigo-soft); }
+.btn-outline-white {
+  background: transparent;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  border: 2px solid rgba(255,255,255,0.5);
+  display: inline-block;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: white;
+}
 
 /* TWO PRODUCTS */
 .two-products {
@@ -190,6 +206,8 @@ nav {
   text-align: left;
   box-shadow: 0 2px 8px rgba(15,23,42,0.04);
   transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
 }
 .product-card:hover {
   transform: translateY(-3px);
@@ -204,16 +222,18 @@ nav {
   font-size: 20px;
   margin-bottom: 8px;
 }
-.product-card p {
+.product-card .product-short-desc {
   color: var(--ink-soft);
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 16px;
+  flex-grow: 1;
 }
 .product-card .product-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  margin-bottom: 20px;
 }
 .product-tag {
   background: var(--bg);
@@ -222,6 +242,98 @@ nav {
   font-weight: 600;
   padding: 4px 10px;
   border-radius: 6px;
+}
+.product-card .product-link {
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.product-card .product-link:hover { gap: 8px; }
+
+/* DEEP DIVE SECTION */
+.deep-dive {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .deep-dive { grid-template-columns: 1fr; } }
+.deep-dive-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+}
+.deep-dive-card .dd-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: block;
+}
+.deep-dive-card h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+.deep-dive-card .dd-subtitle {
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.deep-dive-card .dd-desc {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.dd-feature-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+.dd-feature-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.5;
+}
+.dd-feature-list li .dd-check {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--green-dim);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.dd-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--indigo);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid var(--indigo);
+  border-radius: 24px;
+  transition: background 0.15s, gap 0.2s;
+}
+.dd-link:hover {
+  background: var(--indigo-soft);
+  gap: 10px;
 }
 
 /* PROBLEM + SOLUTION */
@@ -271,6 +383,37 @@ nav {
   flex-shrink: 0;
   margin-top: 2px;
 }
+
+/* HOW IT WORKS */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+@media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
+.step-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  text-align: center;
+}
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  margin: 0 auto 12px;
+}
+.step-card h4 { font-size: 14px; margin-bottom: 4px; }
+.step-card p { font-size: 12px; color: var(--ink-soft); }
 
 /* PRICING */
 .pricing-hero {
@@ -357,37 +500,6 @@ nav {
   margin-top: 16px;
   line-height: 1.6;
 }
-
-/* HOW IT WORKS */
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  max-width: 900px;
-  margin: 40px auto 0;
-}
-@media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
-.step-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px 16px;
-  text-align: center;
-}
-.step-num {
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  background: var(--indigo);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 14px;
-  margin: 0 auto 12px;
-}
-.step-card h4 { font-size: 14px; margin-bottom: 4px; }
-.step-card p { font-size: 12px; color: var(--ink-soft); }
 
 /* WHAT YOU GET */
 .benefits-grid {
@@ -478,7 +590,7 @@ footer a { color: var(--indigo); text-decoration: none; font-weight: 600; }
     <p class="subtitle">One tool brings customers to your site. The other answers them instantly. Together, they run your growth on autopilot.</p>
     <div class="hero-actions">
       <a href="#pricing" class="btn-primary">Get Both Tools — $299 setup</a>
-      <a href="#how" class="btn-secondary">See how it works</a>
+      <a href="#deep-dive" class="btn-secondary">See what's inside</a>
     </div>
 
     <!-- Two product cards -->
@@ -486,31 +598,82 @@ footer a { color: var(--indigo); text-decoration: none; font-weight: 600; }
       <div class="product-card">
         <span class="product-icon">🔍</span>
         <h3>AI Visibility Navigator</h3>
-        <p>Find out how visible your business is to ChatGPT, Claude, and other AI systems — and get a step-by-step plan to improve.</p>
+        <p class="product-short-desc">Find out how visible your business is to ChatGPT, Claude, and other AI systems — and get a step-by-step plan to fix every gap.</p>
         <div class="product-tags">
-          <span class="product-tag">SEO audit</span>
-          <span class="product-tag">AI visibility score</span>
-          <span class="product-tag">Content gaps</span>
-          <span class="product-tag">Monthly monitoring</span>
+          <span class="product-tag">AI visibility scoring</span>
+          <span class="product-tag">Content gap detection</span>
+          <span class="product-tag">Competitor comparison</span>
+          <span class="product-tag">Monthly trend tracking</span>
         </div>
+        <a href="https://etsystemsai.github.io/ai-visibility-navigator-landing/index.html" class="product-link">Explore AI Visibility Navigator →</a>
       </div>
       <div class="product-card">
         <span class="product-icon">💬</span>
         <h3>AI Knowledge Assistant</h3>
-        <p>Turn your documentation into an AI assistant that answers customer questions instantly — in any language, 24/7.</p>
+        <p class="product-short-desc">Turn your documentation into an AI assistant that answers customer questions instantly — in any language, 24/7, with screenshot understanding.</p>
         <div class="product-tags">
-          <span class="product-tag">FAQ bot</span>
-          <span class="product-tag">Multi-language</span>
-          <span class="product-tag">Screenshot support</span>
-          <span class="product-tag">Managed hosting</span>
+          <span class="product-tag">FAQ bot from your docs</span>
+          <span class="product-tag">Multi-language support</span>
+          <span class="product-tag">Screenshot understanding</span>
+          <span class="product-tag">Fully managed hosting</span>
         </div>
+        <a href="https://etsystemsai.github.io/ai-faq-landing/" class="product-link">Explore AI Knowledge Assistant →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEEP DIVE -->
+<section id="deep-dive" style="background: white;">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div class="section-eyebrow">What's Inside</div>
+      <h2 class="section-title">A closer look at each tool</h2>
+      <p class="section-text" style="max-width: 560px; margin: 0 auto;">Each tool is powerful on its own. Together, they cover the full customer journey — from discovery to support.</p>
+    </div>
+
+    <div class="deep-dive">
+      <!-- Visibility Navigator deep dive -->
+      <div class="deep-dive-card">
+        <span class="dd-icon">🔍</span>
+        <h3>AI Visibility Navigator</h3>
+        <p class="dd-subtitle">How visible is your business to AI?</p>
+        <p class="dd-desc">When someone asks ChatGPT "what's the best accounting software in Serbia?" — does your business come up? Most companies have no idea. We measure it and tell you exactly what to fix.</p>
+        <ul class="dd-feature-list">
+          <li><span class="dd-check">✓</span> <strong>AI Visibility Score</strong> — a single number that shows how often AI systems mention your business for relevant queries</li>
+          <li><span class="dd-check">✓</span> <strong>10–15 simulated AI queries</strong> — real questions your customers are asking ChatGPT and Claude right now</li>
+          <li><span class="dd-check">✓</span> <strong>Answer accuracy audit</strong> — does AI describe your product correctly, or is it hallucinating?</li>
+          <li><span class="dd-check">✓</span> <strong>Content gap detection</strong> — what are customers asking that your website doesn't answer?</li>
+          <li><span class="dd-check">✓</span> <strong>Prioritized action plan</strong> — not just data, but a clear list of what to add, fix, or improve</li>
+          <li><span class="dd-check">✓</span> <strong>Monthly monitoring</strong> — track your scores over time, get alerts when visibility drops</li>
+          <li><span class="dd-check">✓</span> <strong>Competitor comparison</strong> — see how you stack up against others in your category</li>
+        </ul>
+        <a href="https://etsystemsai.github.io/ai-visibility-navigator-landing/index.html" class="dd-link">Full details & pricing →</a>
+      </div>
+
+      <!-- Knowledge Assistant deep dive -->
+      <div class="deep-dive-card">
+        <span class="dd-icon">💬</span>
+        <h3>AI Knowledge Assistant</h3>
+        <p class="dd-subtitle">Your documentation, turned into instant answers</p>
+        <p class="dd-desc">Your support team answers "How do I…?" 40 times a day. Your knowledge base exists, but nobody reads it. This assistant reads it for them — and answers in seconds.</p>
+        <ul class="dd-feature-list">
+          <li><span class="dd-check">✓</span> <strong>Grounded in your real docs</strong> — every answer comes from your FAQ, manuals, and documentation. It never invents policies or numbers</li>
+          <li><span class="dd-check">✓</span> <strong>Multi-language, one knowledge base</strong> — customers ask in Serbian, English, German… the assistant answers in the same language. No separate setup per language</li>
+          <li><span class="dd-check">✓</span> <strong>Screenshot understanding</strong> — a customer uploads a screenshot of an error message, the assistant sees it and answers precisely</li>
+          <li><span class="dd-check">✓</span> <strong>Honest by design</strong> — if the answer isn't in your docs, it says so and routes to your team. No hallucinations</li>
+          <li><span class="dd-check">✓</span> <strong>Fully managed hosting</strong> — we deploy on our infrastructure, monitor uptime, and keep everything updated</li>
+          <li><span class="dd-check">✓</span> <strong>Analytics dashboard</strong> — see what customers ask, spot gaps in your documentation, improve continuously</li>
+          <li><span class="dd-check">✓</span> <strong>You control costs</strong> — bring your own API key. You pay only for tokens (~$0.01/query). No hidden LLM fees</li>
+        </ul>
+        <a href="https://etsystemsai.github.io/ai-faq-landing/" class="dd-link">Full details & pricing →</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- THE PROBLEM + SOLUTION -->
-<section style="background: white;">
+<section style="background: var(--bg);">
   <div class="container">
     <div class="split-section">
       <div>
@@ -540,7 +703,7 @@ footer a { color: var(--indigo); text-decoration: none; font-weight: 600; }
 </section>
 
 <!-- HOW IT WORKS -->
-<section id="how" style="background: var(--bg);">
+<section id="how" style="background: white;">
   <div class="container" style="text-align: center;">
     <div class="section-eyebrow">Process</div>
     <h2 class="section-title">From "I didn't know this was possible" to up and running</h2>
@@ -571,7 +734,7 @@ footer a { color: var(--indigo); text-decoration: none; font-weight: 600; }
 </section>
 
 <!-- PRICING -->
-<section id="pricing">
+<section id="pricing" style="background: var(--bg);">
   <div class="container">
     <div class="pricing-hero">
       <div class="pricing-badge">💰 Best Value</div>
