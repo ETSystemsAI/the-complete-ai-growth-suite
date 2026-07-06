@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Complete AI Growth Suite · ETSystemsAI</title>
+<meta name="description" content="Two AI tools that bring you traffic AND answer every customer — one setup fee, one monthly bill. AI Visibility Navigator + AI FAQ Assistant.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:      #0f172a;
+  --ink-soft: #475569;
+  --indigo:   #4F46E5;
+  --indigo-dark: #3730A3;
+  --indigo-soft: #EEF2FF;
+  --blue:     #2563eb;
+  --blue-dim: #dbeafe;
+  --green:    #10b981;
+  --green-dim:#d1fae5;
+  --amber:    #f59e0b;
+  --amber-dim:#fef3c7;
+  --bg:       #FAFAFB;
+  --surface:  #ffffff;
+  --border:   #e2e8f0;
+  --radius:   16px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3 { font-family: 'Space Grotesk', sans-serif; line-height: 1.15; letter-spacing: -0.02em; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+section { padding: 80px 0; }
+@media (max-width: 768px) { section { padding: 56px 0; } }
+
+/* NAV */
+nav {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-mark {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+}
+.nav-cta {
+  background: var(--indigo);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--indigo-dark); }
+
+/* HERO */
+.hero {
+  padding: 100px 0 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--indigo-soft) 0%, transparent 70%);
+  z-index: -1;
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--amber-dim);
+  color: #92400e;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 99px;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  font-weight: 700;
+  max-width: 800px;
+  margin: 0 auto 16px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--indigo);
+}
+.hero .subtitle {
+  font-size: 19px;
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--indigo);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.15s, transform 0.15s;
+}
+.btn-primary:hover {
+  background: var(--indigo-dark);
+  transform: translateY(-2px);
+}
+.btn-secondary {
+  background: white;
+  color: var(--indigo);
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  border: 2px solid var(--indigo);
+  display: inline-block;
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: var(--indigo-soft); }
+
+/* TWO PRODUCTS */
+.two-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 900px;
+  margin: 60px auto 0;
+}
+@media (max-width: 700px) { .two-products { grid-template-columns: 1fr; } }
+.product-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(15,23,42,0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(79,70,229,0.1);
+}
+.product-card .product-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+}
+.product-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+.product-card p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+.product-card .product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.product-tag {
+  background: var(--bg);
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* PROBLEM + SOLUTION */
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+@media (max-width: 700px) { .split-section { grid-template-columns: 1fr; gap: 24px; } }
+.section-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--indigo);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.section-text {
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.check-list {
+  list-style: none;
+  margin-top: 20px;
+}
+.check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--ink);
+}
+.check-list li::before {
+  content: "✓";
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* PRICING */
+.pricing-hero {
+  background: white;
+  border: 2px solid var(--indigo);
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: 0 8px 40px rgba(79,70,229,0.1);
+}
+.pricing-badge {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 99px;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+.pricing-hero h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.pricing-hero .pricing-sub {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin-bottom: 32px;
+}
+.pricing-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 500px) { .pricing-row { grid-template-columns: 1fr; } }
+.pricing-box {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 24px;
+}
+.pricing-box .price-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+.pricing-box .price-amount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--indigo);
+}
+.pricing-box .price-amount span {
+  font-size: 15px;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.pricing-box .price-old {
+  font-size: 16px;
+  color: var(--ink-soft);
+  text-decoration: line-through;
+  margin-left: 6px;
+  font-weight: 400;
+}
+.total-save {
+  display: inline-block;
+  background: var(--green-dim);
+  color: #065f46;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 99px;
+  margin-bottom: 24px;
+}
+.pricing-note {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+/* HOW IT WORKS */
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+@media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr 1fr; } }
+.step-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 16px;
+  text-align: center;
+}
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  margin: 0 auto 12px;
+}
+.step-card h4 { font-size: 14px; margin-bottom: 4px; }
+.step-card p { font-size: 12px; color: var(--ink-soft); }
+
+/* WHAT YOU GET */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+@media (max-width: 600px) { .benefits-grid { grid-template-columns: 1fr; } }
+.benefit-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.benefit-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--indigo-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.benefit-card h4 { font-size: 15px; margin-bottom: 4px; }
+.benefit-card p { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+
+/* CTA */
+.cta-section {
+  background: var(--ink);
+  color: white;
+  text-align: center;
+  padding: 80px 24px;
+}
+.cta-section h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin-bottom: 16px;
+}
+.cta-section p {
+  color: rgba(255,255,255,0.65);
+  max-width: 500px;
+  margin: 0 auto 32px;
+  font-size: 16px;
+}
+.cta-section .btn-primary {
+  background: white;
+  color: var(--indigo);
+}
+.cta-section .btn-primary:hover {
+  background: var(--indigo-soft);
+  color: var(--indigo-dark);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 32px 24px;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+footer a { color: var(--indigo); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">ET</div>
+      ETSystemsAI
+    </a>
+    <a href="#pricing" class="nav-cta">Get the Bundle</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🚀 Two AI Tools, One Price</div>
+    <h1>The Complete <em>AI Growth Suite</em></h1>
+    <p class="subtitle">One tool brings customers to your site. The other answers them instantly. Together, they run your growth on autopilot.</p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn-primary">Get Both Tools — $299 setup</a>
+      <a href="#how" class="btn-secondary">See how it works</a>
+    </div>
+
+    <!-- Two product cards -->
+    <div class="two-products">
+      <div class="product-card">
+        <span class="product-icon">🔍</span>
+        <h3>AI Visibility Navigator</h3>
+        <p>Find out how visible your business is to ChatGPT, Claude, and other AI systems — and get a step-by-step plan to improve.</p>
+        <div class="product-tags">
+          <span class="product-tag">SEO audit</span>
+          <span class="product-tag">AI visibility score</span>
+          <span class="product-tag">Content gaps</span>
+          <span class="product-tag">Monthly monitoring</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <span class="product-icon">💬</span>
+        <h3>AI Knowledge Assistant</h3>
+        <p>Turn your documentation into an AI assistant that answers customer questions instantly — in any language, 24/7.</p>
+        <div class="product-tags">
+          <span class="product-tag">FAQ bot</span>
+          <span class="product-tag">Multi-language</span>
+          <span class="product-tag">Screenshot support</span>
+          <span class="product-tag">Managed hosting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM + SOLUTION -->
+<section style="background: white;">
+  <div class="container">
+    <div class="split-section">
+      <div>
+        <div class="section-eyebrow">The Problem</div>
+        <h2 class="section-title">You built a great business. But can anyone find it?</h2>
+        <p class="section-text">Your website might be invisible to AI-powered search. And even when customers do find you, your support team drowns in the same repetitive questions day after day.</p>
+        <ul class="check-list">
+          <li>Your competitors show up in ChatGPT — you don't</li>
+          <li>Your support team answers "How do I…?" 40 times a day</li>
+          <li>Your knowledge base exists, but nobody reads it</li>
+          <li>You're losing customers before they even talk to you</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-eyebrow">The Solution</div>
+        <h2 class="section-title">AI that brings them in. AI that answers them.</h2>
+        <p class="section-text">The AI Growth Suite gives you two tools that work together: one audits and improves your AI visibility, the other handles customer questions automatically. You focus on building — the tools handle the rest.</p>
+        <ul class="check-list">
+          <li>See exactly how AI systems view your business</li>
+          <li>Get a prioritized list of what to fix</li>
+          <li>Deploy an AI assistant that answers from your docs</li>
+          <li>Free your team from repetitive questions forever</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="background: var(--bg);">
+  <div class="container" style="text-align: center;">
+    <div class="section-eyebrow">Process</div>
+    <h2 class="section-title">From "I didn't know this was possible" to up and running</h2>
+    <p class="section-text" style="max-width: 560px; margin: 0 auto;">We handle the setup. You get the results. Here's what happens after you reach out.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Discovery call</h4>
+        <p>We learn about your business, your documentation, and what your customers ask.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Setup & deploy</h4>
+        <p>We configure both tools, run the first audit, and deploy your AI assistant.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>You review</h4>
+        <p>Test everything on your own data before it goes live to your customers.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Go live</h4>
+        <p>Your customers get instant answers. Your visibility scores start improving.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-hero">
+      <div class="pricing-badge">💰 Best Value</div>
+      <h2>The Complete AI Growth Suite</h2>
+      <p class="pricing-sub">One setup fee. One monthly bill. Two tools that grow your business.</p>
+
+      <div class="pricing-row">
+        <div class="pricing-box">
+          <div class="price-label">Setup</div>
+          <div class="price-amount">$299 <span class="price-old">$398</span></div>
+          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">one-time</div>
+        </div>
+        <div class="pricing-box">
+          <div class="price-label">Maintenance</div>
+          <div class="price-amount">from $69<span>/mo</span> <span class="price-old">from $128</span></div>
+          <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;">hosting & support included</div>
+        </div>
+      </div>
+
+      <div class="total-save">Save $99 on setup + from $59/month</div>
+
+      <a href="mailto:e.kate.taratuta@gmail.com?subject=AI%20Growth%20Suite%20%E2%80%94%20Let's%20talk" class="btn-primary" style="display: block; max-width: 300px; margin: 0 auto;">Get Started →</a>
+
+      <p class="pricing-note">
+        You bring your own API key — pay only for tokens (~$0.01/query).<br>
+        Final monthly price depends on your document volume and query load.<br>
+        We'll give you a precise quote after a short discovery call.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section style="background: white;">
+  <div class="container" style="text-align: center;">
+    <div class="section-eyebrow">What's Included</div>
+    <h2 class="section-title">Everything you need to grow with AI</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🔍</div>
+        <div>
+          <h4>AI Visibility Audit</h4>
+          <p>10+ AI query simulations, visibility scoring, content gap detection, and a prioritized action plan.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💬</div>
+        <div>
+          <h4>AI Knowledge Assistant</h4>
+          <p>FAQ bot that answers from your docs, in multiple languages, with screenshot understanding.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🖥️</div>
+        <div>
+          <h4>Managed Hosting</h4>
+          <p>We deploy on our infrastructure and handle uptime, monitoring, and updates.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📊</div>
+        <div>
+          <h4>Monthly Monitoring</h4>
+          <p>Ongoing visibility tracking, trend reports, and alerts when your scores change.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔧</div>
+        <div>
+          <h4>Engineering Support</h4>
+          <p>Direct access to the engineer who built both tools. No support tickets, no runaround.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔑</div>
+        <div>
+          <h4>BYOK — You Control Costs</h4>
+          <p>Bring your own OpenAI / Claude / Gemini API key. No hidden LLM fees from us.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to see how AI sees your business?</h2>
+  <p>We'll run a free sample audit on one of your pages and show you exactly how both tools work — no commitment.</p>
+  <a href="mailto:e.kate.taratuta@gmail.com?subject=Free%20Sample%20Audit%20%2B%20Demo" class="btn-primary">Get your free sample →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <strong>ETSystemsAI</strong> ·
+    <a href="mailto:e.kate.taratuta@gmail.com">e.kate.taratuta@gmail.com</a> ·
+    Sombor, Serbia
+  </p>
+  <p style="margin-top: 8px; font-size: 12px;">
+    © 2026 ETSystemsAI · Built by Ekaterina Taratuta, Ph.D.
+  </p>
+</footer>
+
+</body>
+</html>
